@@ -1,13 +1,9 @@
 module Score
   def self.included(receiver)
-    receiver.extend         ClassMethods
     receiver.send :include, InstanceMethods
   end
 
-  module ClassMethods
-  end
-
-  module InstanceMethods
+module InstanceMethods
     def qnt_score
       @score = 0
       ace = card_on_hand.any? { |card| /T/ =~ card.to_s }
